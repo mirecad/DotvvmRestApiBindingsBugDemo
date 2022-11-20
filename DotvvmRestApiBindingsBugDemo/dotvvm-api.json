@@ -1,0 +1,1 @@
+[{"swaggerFile":"https://localhost:60207/swagger/v1/swagger.json","csharpClient":"Api\\ApiClient.cs","typescriptClient":"wwwroot\\Scripts\\ApiClient.ts","namespace":"DotvvmRestApiBindingsBugDemo.Api","compileTypescript":true,"generateWrapperClass":true,"isSingleClient":false,"fetchOptions":{"credentials":"same-origin"}}]

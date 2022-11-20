@@ -1,0 +1,39 @@
+﻿@viewModel DotvvmRestApiBindingsBugDemo.ViewModels.DefaultViewModel, DotvvmRestApiBindingsBugDemo
+@masterPage Views/MasterPage.dotmaster
+@service _dateService = DotvvmRestApiBindingsBugDemo.Services.DateService
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="content">
+
+        <img src="/Resources/Images/tree.svg" class="content__background-image content__background-image--left" />
+
+        <a href="https://www.dotvvm.com/" target="_blank">
+            <img src="/Resources/Images/text.svg" class="content__image" />
+        </a>
+        <div class="content__text">
+            <div>
+                Actual time from viewmodel loaded on backend: <b>{{value: ActualTimeFromViewModel}}</b>
+            </div>
+            <br>
+            <div>
+                Actual time from REST API bindings: <b>{{value: _restApi.GetTime().Value}}</b>
+            </div>
+            <br>
+            <dot:Button Text="Load time from static command services to viewmodel property bellow:" Click="{staticCommand: ActualTimeFromStaticCommandServices = _dateService.GetTime()}"></dot:Button>
+            <div>
+                Actual time loaded by click from static command services: <b>{{value: ActualTimeFromStaticCommandServices}}</b>
+            </div>
+            <br>
+            <dot:Button Text="Load time from API to viewmodel property bellow:" Click="{staticCommand: ActualTimeFromRestApi = _restApi.GetTime().Value}"></dot:Button>
+            <div>
+                Actual time loaded by click to viewmodel property using REST API bindings: <b>{{value: ActualTimeFromRestApi}}</b>
+            </div>
+            <br>
+            <dot:Button Text="Load time from viewmodel static commmand to viewmodel property bellow:" Click="{staticCommand: ActualTimeViewModelStaticCommand = DotvvmRestApiBindingsBugDemo.ViewModels.DefaultViewModel.GetTime()}"></dot:Button>
+            <div>
+                Actual time loaded by click to viewmodel property using viewmodel static command: <b>{{value: ActualTimeViewModelStaticCommand}}</b>
+            </div>
+            <img src="/Resources/Images/tree.svg" class="content__background-image content__background-image content__background-image--right" />
+        </div>
+</dot:Content>
